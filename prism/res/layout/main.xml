@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+	<include layout="@layout/main_frame_layout" />
+	<include layout="@layout/grid_layout" />
+	<RelativeLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:id="@+id/touch_panel"
+		android:background="#00000000">
+		<ImageView android:id="@+id/touchImage"
+			android:layout_width="10dp" android:layout_height="10dp"/>
+	</RelativeLayout>
+</FrameLayout>

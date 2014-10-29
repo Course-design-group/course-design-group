@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="#00000000">
+	<LinearLayout android:layout_width="wrap_content"
+		android:layout_height="fill_parent" android:background="@drawable/main_frame_shape">
+		<LinearLayout android:orientation="vertical"
+			android:layout_width="wrap_content" android:layout_margin="5dp"
+			android:layout_height="fill_parent" android:id="@+id/layout_grid">
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:layout_marginLeft="5dp">
+		<LinearLayout android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:background="#00000000"
+			android:orientation="vertical" android:gravity="center">
+			<LinearLayout android:orientation="vertical"
+				android:layout_width="wrap_content" android:layout_margin="5dp"
+				android:layout_height="wrap_content" android:id="@+id/grid_tools_layout"
+				android:background="#00000000">
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>
