@@ -74,7 +74,7 @@ public class GridViewMain {
 
 	public void changeGrid(int line, int column) {
 		Tool tool = grids[line][column].getTool();
-		if (tool == null) {
+		if (tool == null || ! tool.isMovable()) {
 			return;
 		}
 		int index = tool.getCurrentImageIndex() + 1;
@@ -86,7 +86,11 @@ public class GridViewMain {
 	}
 
 	public Tool removeTool(int line, int column) {
-		Tool t = grids[line][column].removeTool();
+		Tool t = grids[line][column].getTool();
+		if(t == null || ! t.isMovable()) {
+			return null;
+		}
+		grids[line][column].removeTool();
 		mapGrids[line][column].setImageResource(-1);
 		mapGrids[line][column].postInvalidate();
 		return t;
@@ -101,5 +105,9 @@ public class GridViewMain {
 			mapGrids[line][column].postInvalidate();
 			return true;
 		}
+	}
+	
+	public Grid[][] getGrids() {
+		return grids;
 	}
 }

@@ -87,7 +87,11 @@ public class GridViewTools {
 	}
 	
 	public Tool removeTool(int line, int column) {
-		Tool t = grids[line][column].removeTool();
+		Tool t = grids[line][column].getTool();
+		if(t == null || ! t.isMovable()) {
+			return null;
+		}
+		grids[line][column].removeTool();
 		toolsView[line][column].setImageResource(-1);
 		toolsView[line][column].postInvalidate();
 		return t;

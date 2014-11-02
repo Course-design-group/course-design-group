@@ -1,6 +1,5 @@
 package com.ustc.edu.tools;
 
-import android.view.View;
 
 public abstract class Tool {
 	public final int WEST = 1;
@@ -15,14 +14,16 @@ public abstract class Tool {
 	protected int[] images = new int[8];
 	protected int currentImageIndex = 5;
 	
-	protected abstract void reflect(View lazerView, Laser laser);
+	private boolean movable = true;
+	
+	public abstract void reflect(Laser laser);
 	
 	public int getCurrentImageIndex() {
 		return currentImageIndex;
 	}
 	
-	public void setCurrentImageIndex(int currentImage) {
-		this.currentImageIndex = currentImage;
+	public void setCurrentImageIndex(int currentImageIndex) {
+		this.currentImageIndex = currentImageIndex;
 	}
 	
 	public int[] getImages(int[] images) {
@@ -35,5 +36,13 @@ public abstract class Tool {
 	
 	public int getImage() {
 		return images[currentImageIndex - 1];
+	}
+
+	public void setMovable(boolean movable) {
+		this.movable = movable;
+	}
+
+	public boolean isMovable() {
+		return movable;
 	}
 }

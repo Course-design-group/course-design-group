@@ -9,6 +9,7 @@ public class ToolFactory {
 		switch (id) {
 		case 'R':
 			tool = new LaserLauncher(Color.RED);
+			tool.setMovable(false);
 			index = Integer.parseInt("" + direction);
 			tool.setCurrentImageIndex(index);
 			break;
@@ -20,6 +21,11 @@ public class ToolFactory {
 			index = Integer.parseInt("" + direction);
 			tool.setCurrentImageIndex(index);
 			break;
+		case 'r':
+			tool = new Lamp(Color.RED);
+			index = 1;
+			tool.setCurrentImageIndex(index);
+			tool.setMovable(false);
 		default:
 			break;
 		}

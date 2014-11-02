@@ -2,7 +2,6 @@ package com.ustc.edu.tools;
 
 import com.ustc.edu.R;
 
-import android.view.View;
 
 public class Mirror extends Tool {
 
@@ -13,7 +12,7 @@ public class Mirror extends Tool {
 	}
 
 	@Override
-	protected void reflect(View lazerView, Laser laser) {
+	public void reflect(Laser laser) {
 
 	}
 

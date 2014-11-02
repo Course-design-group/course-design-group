@@ -25,18 +25,28 @@ public final class R {
         public static final int mirror6=0x7f02000b;
         public static final int mirror7=0x7f02000c;
         public static final int mirror8=0x7f02000d;
-        public static final int red_launcher=0x7f02000e;
-        public static final int tools_cell=0x7f02000f;
-        public static final int tools_frame_shape=0x7f020010;
+        public static final int red_lamp_dim=0x7f02000e;
+        public static final int red_lamp_light=0x7f02000f;
+        public static final int red_launcher1=0x7f020010;
+        public static final int red_launcher2=0x7f020011;
+        public static final int red_launcher3=0x7f020012;
+        public static final int red_launcher4=0x7f020013;
+        public static final int red_launcher5=0x7f020014;
+        public static final int red_launcher6=0x7f020015;
+        public static final int red_launcher7=0x7f020016;
+        public static final int red_launcher8=0x7f020017;
+        public static final int tools_cell=0x7f020018;
+        public static final int tools_frame_shape=0x7f020019;
     }
     public static final class id {
         public static final int grid_tools_layout=0x7f050001;
-        public static final int infoLayout=0x7f050006;
+        public static final int infoLayout=0x7f050007;
+        public static final int laserPanel=0x7f050002;
         public static final int layout_grid=0x7f050000;
-        public static final int mapLayout=0x7f050004;
-        public static final int toolsLayout=0x7f050005;
-        public static final int touchImage=0x7f050003;
-        public static final int touch_panel=0x7f050002;
+        public static final int mapLayout=0x7f050005;
+        public static final int toolsLayout=0x7f050006;
+        public static final int touchImage=0x7f050004;
+        public static final int touch_panel=0x7f050003;
     }
     public static final class layout {
         public static final int grid_layout=0x7f030000;
