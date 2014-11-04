@@ -19,12 +19,12 @@ public class LaserLauncher extends Tool {
 					R.drawable.red_launcher6, R.drawable.red_launcher7,
 					R.drawable.red_launcher8 });
 		}
-		laser = new Laser(color, getCurrentImageIndex());
+		laser = new Laser(color, getDirection());
 	}
 
 	@Override
-	public void reflect(Laser laser) {
-
+	public Laser reflect(Laser laser) {
+		return laser;
 	}
 
 	public int getColor() {
@@ -52,7 +52,7 @@ public class LaserLauncher extends Tool {
 	}
 
 	public Laser emitLaser() {
-		laser.setDirection(getCurrentImageIndex());
+		laser.setDirection(getDirection());
 		return laser;
 	}
 }

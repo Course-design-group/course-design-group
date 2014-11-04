@@ -6,6 +6,8 @@ import android.graphics.Color;
 
 public class Lamp extends Tool {
 	private int color;
+	private int line;
+	private int column;
 
 	public Lamp(int color) {
 		this.setColor(color);
@@ -19,8 +21,9 @@ public class Lamp extends Tool {
 	}
 
 	@Override
-	public void reflect(Laser laser) {
-
+	public Laser reflect(Laser laser) {
+		open();
+		return laser;
 	}
 
 	public void setColor(int color) {
@@ -29,5 +32,29 @@ public class Lamp extends Tool {
 
 	public int getColor() {
 		return color;
+	}
+	
+	public void open() {
+		super.direction = 3;
+	}
+	
+	public void close() {
+		super.direction = 2;
+	}
+
+	public void setColumn(int column) {
+		this.column = column;
+	}
+
+	public int getColumn() {
+		return column;
+	}
+
+	public void setLine(int line) {
+		this.line = line;
+	}
+
+	public int getLine() {
+		return line;
 	}
 }

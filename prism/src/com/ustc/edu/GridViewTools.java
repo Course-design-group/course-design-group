@@ -72,18 +72,17 @@ public class GridViewTools {
 	}
 
 	public void changeGrid(int line, int column) {
-		System.out.println("Tools: chage grid");
 		Tool tool = grids[line][column].getTool();
 		if (tool == null) {
 			return;
 		}
-		int index = tool.getCurrentImageIndex() + 1;
+		int index = tool.getDirection() + 1;
 		if(index == 9)
 			index = 1;
-		tool.setCurrentImageIndex(index);
+		tool.setDirection(index);
 		toolsView[line][column]
 				.setImageResource(grids[line][column].getImage());
-		toolsView[line][column].postInvalidate();
+//		toolsView[line][column].postInvalidate();
 	}
 	
 	public Tool removeTool(int line, int column) {
@@ -93,7 +92,7 @@ public class GridViewTools {
 		}
 		grids[line][column].removeTool();
 		toolsView[line][column].setImageResource(-1);
-		toolsView[line][column].postInvalidate();
+//		toolsView[line][column].postInvalidate();
 		return t;
 	}
 	
@@ -103,7 +102,7 @@ public class GridViewTools {
 		} else {
 			grids[line][column].setTool(tool);
 			toolsView[line][column].setImageResource(grids[line][column].getImage());
-			toolsView[line][column].postInvalidate();
+//			toolsView[line][column].postInvalidate();
 			return true;
 		}
 	}

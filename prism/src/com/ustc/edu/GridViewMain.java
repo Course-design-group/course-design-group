@@ -77,12 +77,17 @@ public class GridViewMain {
 		if (tool == null || ! tool.isMovable()) {
 			return;
 		}
-		int index = tool.getCurrentImageIndex() + 1;
+		changeGrid2(line, column);
+	}
+	
+	public void changeGrid2(int line, int column) {
+		Tool tool = grids[line][column].getTool();
+		int index = tool.getDirection() + 1;
 		if (index == 9)
 			index = 1;
-		tool.setCurrentImageIndex(index);
+		tool.setDirection(index);
 		mapGrids[line][column].setImageResource(grids[line][column].getImage());
-		mapGrids[line][column].postInvalidate();
+//		mapGrids[line][column].postInvalidate();
 	}
 
 	public Tool removeTool(int line, int column) {
@@ -92,7 +97,7 @@ public class GridViewMain {
 		}
 		grids[line][column].removeTool();
 		mapGrids[line][column].setImageResource(-1);
-		mapGrids[line][column].postInvalidate();
+//		mapGrids[line][column].postInvalidate();
 		return t;
 	}
 	
@@ -102,7 +107,7 @@ public class GridViewMain {
 		} else {
 			grids[line][column].setTool(tool);
 			mapGrids[line][column].setImageResource(grids[line][column].getImage());
-			mapGrids[line][column].postInvalidate();
+//			mapGrids[line][column].postInvalidate();
 			return true;
 		}
 	}

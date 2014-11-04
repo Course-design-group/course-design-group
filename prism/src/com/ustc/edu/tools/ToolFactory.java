@@ -11,7 +11,7 @@ public class ToolFactory {
 			tool = new LaserLauncher(Color.RED);
 			tool.setMovable(false);
 			index = Integer.parseInt("" + direction);
-			tool.setCurrentImageIndex(index);
+			tool.setDirection(index);
 			break;
 		case 'N':
 			tool = null;
@@ -19,12 +19,12 @@ public class ToolFactory {
 		case 'M':
 			tool = new Mirror();
 			index = Integer.parseInt("" + direction);
-			tool.setCurrentImageIndex(index);
+			tool.setDirection(index);
 			break;
 		case 'r':
 			tool = new Lamp(Color.RED);
 			index = 1;
-			tool.setCurrentImageIndex(index);
+			tool.setDirection(index);
 			tool.setMovable(false);
 		default:
 			break;

@@ -12,18 +12,18 @@ public abstract class Tool {
 	public final int SOUTH_EAST = 6;
 	
 	protected int[] images = new int[8];
-	protected int currentImageIndex = 5;
+	protected int direction = 5;
 	
 	private boolean movable = true;
 	
-	public abstract void reflect(Laser laser);
+	public abstract Laser reflect(Laser laser);
 	
-	public int getCurrentImageIndex() {
-		return currentImageIndex;
+	public int getDirection() {
+		return direction;
 	}
 	
-	public void setCurrentImageIndex(int currentImageIndex) {
-		this.currentImageIndex = currentImageIndex;
+	public void setDirection(int direction) {
+		this.direction = direction;
 	}
 	
 	public int[] getImages(int[] images) {
@@ -35,7 +35,7 @@ public abstract class Tool {
 	}
 	
 	public int getImage() {
-		return images[currentImageIndex - 1];
+		return images[direction - 1];
 	}
 
 	public void setMovable(boolean movable) {

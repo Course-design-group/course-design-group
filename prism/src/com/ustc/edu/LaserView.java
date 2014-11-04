@@ -9,21 +9,26 @@ import android.view.View;
 import android.widget.TableLayout.LayoutParams;
 
 import com.ustc.edu.tools.Grid;
+import com.ustc.edu.tools.Lamp;
 import com.ustc.edu.tools.Laser;
 import com.ustc.edu.tools.LaserLauncher;
 import com.ustc.edu.tools.Tool;
 
 public class LaserView extends View {
 	private ArrayList<LaserLauncher> launchers = new ArrayList<LaserLauncher>();
+	private ArrayList<Lamp> lamps = new ArrayList<Lamp>();
 	private Grid[][] grids;
 	private int gridSize;
 	private Paint paint;
 	private int linePlus = -1;
 	private int columnPlus = -1;
+	private GridViewMain main;
 
-	public LaserView(Context context, Grid[][] grids, int gridSize) {
+	public LaserView(Context context, GridViewMain main, int gridSize) {
 		super(context);
-		this.grids = grids;
+		System.out.println("constructor");
+		this.main = main;
+		this.grids = main.getGrids();
 		this.gridSize = gridSize;
 
 		for (int i = 0; i < grids.length; i++) {
@@ -34,21 +39,32 @@ public class LaserView extends View {
 					launcher.setLine(i);
 					launcher.setColumn(j);
 					launchers.add(launcher);
+				} else if (grids[i][j].getTool() instanceof Lamp) {
+					Lamp lamp = (Lamp) grids[i][j].getTool();
+					lamp.setLine(i);
+					lamp.setColumn(j);
+					lamps.add(lamp);
 				}
 		}
-		
+
 		paint = new Paint();
 		LayoutParams params = new LayoutParams();
 		params.width = LayoutParams.FILL_PARENT;
 		params.height = LayoutParams.FILL_PARENT;
 		setLayoutParams(params);
 		setVisibility(VISIBLE);
-		invalidate();
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
+		System.out.println("on draw");
+		for(int i = 0; i < lamps.size(); i++) {
+			Lamp lamp = lamps.get(i);
+			lamp.close();
+			main.changeGrid2(lamp.getLine(), lamp.getColumn());
+		}
+		
 		for (int i = 0; i < launchers.size(); i++) {
 			LaserLauncher launcher = launchers.get(i);
 			linePlus = columnPlus = -1;
@@ -58,15 +74,19 @@ public class LaserView extends View {
 	}
 
 	private void emitLaser(Laser laser, int line, int column, Canvas canvas) {
-		if(line >= grids.length || column >= grids[0].length)
+		if (line >= grids.length || column >= grids[0].length)
 			return;
-		if(line < 0 || column < 0)
-			return;
-		if(laser == null)
+		if (line < 0 || column < 0)
 			return;
 		Tool t = grids[line][column].getTool();
 		if (t != null) {
-			t.reflect(laser);
+			laser = t.reflect(laser);
+			if (laser == null)
+				return;
+			if (t instanceof Lamp) {
+				main.changeGrid2(line, column);
+			}
+
 			switch (laser.getDirection()) {
 			case 1:
 				columnPlus = -1;
@@ -105,8 +125,16 @@ public class LaserView extends View {
 
 		float startX = column * gridSize + gridSize / 2 + 5;
 		float startY = line * gridSize + gridSize / 2 + 5;
-		float stopX = (column + columnPlus) * gridSize + gridSize/2 + 5;
-		float stopY = (line + linePlus) * gridSize + gridSize / 2 + 5;
+		float stopX;
+		float stopY;
+		if (column + columnPlus >= grids.length) {
+			stopX = startX + columnPlus * gridSize / 2;
+			stopY = startY + linePlus * gridSize / 2;
+		} else {
+			stopX = (column + columnPlus) * gridSize + gridSize / 2 + 5;
+			stopY = (line + linePlus) * gridSize + gridSize / 2 + 5;
+		}
+
 		paint.setColor(laser.getColor());
 		paint.setStrokeWidth((float) 1.5);
 		canvas.drawLine(startX, startY, stopX, stopY, paint);
