@@ -39,10 +39,10 @@ public class MainActivity extends Activity implements OnTouchListener {
 		new MainFrame(this, gridNum);
 		new ToolsFrame(this, (width - height) * gridNum / height, gridNum / 2);
 		gridViewMain = new GridViewMain(this, gridNum,
-				"N0N0N0N0N0N0N0N0N0N0N0N0" + "R5N0N0N0N0N0N0N0N0N0N0N0"
-						+ "N0N0r0N0N0N0N0N0N0N0r0N0");
+				"N0N0N0N0N0N0N0N0N0N0N0N0" + "N0N0N0N0N0B1N0N0N0N0N0N0"
+						+ "N0N0p0N0N0N0N0R3N0N0N0N0");
 		gridViewTools = new GridViewTools(this, (width - height) * gridNum
-				/ height, gridNum / 2, "M1M8");
+				/ height, gridNum / 2, "M1M1");
 		laserView = new LaserView(this, gridViewMain, (height - 5) / gridNum);
 		FrameLayout laserPanel = (FrameLayout) findViewById(R.id.laserPanel);
 		laserPanel.addView(laserView);

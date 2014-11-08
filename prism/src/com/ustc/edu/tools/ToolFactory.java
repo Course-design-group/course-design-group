@@ -13,6 +13,12 @@ public class ToolFactory {
 			index = Integer.parseInt("" + direction);
 			tool.setDirection(index);
 			break;
+		case 'B':
+			tool = new LaserLauncher(Color.BLUE);
+			tool.setMovable(false);
+			index = Integer.parseInt("" + direction);
+			tool.setDirection(index);
+			break;
 		case 'N':
 			tool = null;
 			break;
@@ -23,6 +29,18 @@ public class ToolFactory {
 			break;
 		case 'r':
 			tool = new Lamp(Color.RED);
+			index = 1;
+			tool.setDirection(index);
+			tool.setMovable(false);
+			break;
+		case 'b':
+			tool = new Lamp(Color.BLUE);
+			index = 1;
+			tool.setDirection(index);
+			tool.setMovable(false);
+			break;
+		case 'p':
+			tool = new Lamp(Color.rgb(255, 0, 255));
 			index = 1;
 			tool.setDirection(index);
 			tool.setMovable(false);

@@ -31,6 +31,7 @@ public class LaserView extends View {
 		this.grids = main.getGrids();
 		this.gridSize = gridSize;
 
+		int laserLauncherId = 0;
 		for (int i = 0; i < grids.length; i++) {
 			for (int j = 0; j < grids[i].length; j++)
 				if (grids[i][j].getTool() instanceof LaserLauncher) {
@@ -38,6 +39,8 @@ public class LaserView extends View {
 							.getTool();
 					launcher.setLine(i);
 					launcher.setColumn(j);
+					launcher.setId(laserLauncherId);
+					laserLauncherId++;
 					launchers.add(launcher);
 				} else if (grids[i][j].getTool() instanceof Lamp) {
 					Lamp lamp = (Lamp) grids[i][j].getTool();
@@ -58,10 +61,10 @@ public class LaserView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		System.out.println("on draw");
 		for(int i = 0; i < lamps.size(); i++) {
 			Lamp lamp = lamps.get(i);
 			lamp.close();
+			lamp.clearLaser();
 			main.changeGrid2(lamp.getLine(), lamp.getColumn());
 		}
 		

@@ -1,6 +1,7 @@
 package com.ustc.edu.tools;
 
 public class Laser {
+	private int id;
 	private int color;
 	private int direction;
 	
@@ -23,5 +24,13 @@ public class Laser {
 
 	public int getDirection() {
 		return direction;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
 	}
 }
