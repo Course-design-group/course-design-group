@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/background">
+	<ImageView android:id="@+id/head" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:src="@drawable/head" />
+	<LinearLayout android:id="@+id/buttons"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:orientation="vertical">
+		<ImageView android:id="@+id/startGame" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/start_game_config"
+			android:onClick="onClick" android:layout_weight = "1"/>
+		<ImageView android:id="@+id/gameExplan" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/game_explain"
+			android:onClick="onClick" android:layout_weight = "1"/>
+		<ImageView android:id="@+id/exitGame" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/exit_game_config"
+			android:onClick="onClick" android:layout_weight = "1"/>
+	</LinearLayout>
+</FrameLayout>

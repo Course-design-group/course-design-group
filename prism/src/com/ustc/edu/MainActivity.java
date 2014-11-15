@@ -10,6 +10,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.ustc.edu.tools.Tool;
+import com.ustc.edu.view.GridViewMain;
+import com.ustc.edu.view.GridViewTools;
+import com.ustc.edu.view.MainFrame;
+import com.ustc.edu.view.ToolsFrame;
 
 public class MainActivity extends Activity implements OnTouchListener {
 	private int width;
@@ -39,10 +43,10 @@ public class MainActivity extends Activity implements OnTouchListener {
 		new MainFrame(this, gridNum);
 		new ToolsFrame(this, (width - height) * gridNum / height, gridNum / 2);
 		gridViewMain = new GridViewMain(this, gridNum,
-				"N0N0N0N0N0N0N0N0N0N0N0N0" + "N0N0N0N0p0B1N0N0N0N0N0N0"
-						+ "N0N0p0N0N0N0N0R3N0N0N0N0");
+				"N0N0b0N0N0N0N0N0N0N0N0N0" + "N0N0N0N0c0B1N0N0g0N0N0N0"
+						+ "N0N0S1N0N0N0N0G3N0N0N0N0");
 		gridViewTools = new GridViewTools(this, (width - height) * gridNum
-				/ height, gridNum / 2, "M1M1");
+				/ height, gridNum / 2, "M1D1T1V1");
 		laserView = new LaserView(this, gridViewMain, (height - 5) / gridNum);
 		FrameLayout laserPanel = (FrameLayout) findViewById(R.id.laserPanel);
 		laserPanel.addView(laserView);

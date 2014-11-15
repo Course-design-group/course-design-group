@@ -1,5 +1,7 @@
 package com.ustc.edu.tools;
 
+import com.ustc.edu.components.Laser;
+
 import android.graphics.Color;
 
 public abstract class Tool {

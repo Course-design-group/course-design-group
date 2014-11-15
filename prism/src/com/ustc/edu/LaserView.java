@@ -8,11 +8,12 @@ import android.graphics.Paint;
 import android.view.View;
 import android.widget.TableLayout.LayoutParams;
 
-import com.ustc.edu.tools.Grid;
-import com.ustc.edu.tools.Lamp;
-import com.ustc.edu.tools.Laser;
-import com.ustc.edu.tools.LaserLauncher;
+import com.ustc.edu.components.Grid;
+import com.ustc.edu.components.Laser;
 import com.ustc.edu.tools.Tool;
+import com.ustc.edu.tools.impl.Lamp;
+import com.ustc.edu.tools.impl.LaserLauncher;
+import com.ustc.edu.view.GridViewMain;
 
 public class LaserView extends View {
 	private ArrayList<LaserLauncher> launchers = new ArrayList<LaserLauncher>();
